@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Index Page', async ({ page }) => {
 	await page.goto('/');
 
 	const titleCount = await page.getByRole('heading', { name: 'Sanction Scan' }).count();
@@ -12,6 +12,6 @@ test('test', async ({ page }) => {
 	await page.getByRole('link', { name: 'Home' }).click();
 	await expect(page).toHaveURL('/');
 
-	const signOutButtonCount = await page.getByRole('button', { name: 'SIGN OUT' }).count();
-	expect(signOutButtonCount).toBeGreaterThan(0);
+	const getStartedButtonCount = await page.getByRole('link', { name: 'GET STARTED' }).count();
+	expect(getStartedButtonCount).toBeGreaterThan(0);
 });
